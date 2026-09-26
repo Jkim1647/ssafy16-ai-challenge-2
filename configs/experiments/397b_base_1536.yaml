@@ -1,0 +1,9 @@
+# Ceiling test. 학습 없이 대표 subset에서 상한만 잰다.
+name: 397b_base_1536
+model: qwen35_397b_a17b
+resource: runpod_b300x2
+task: infer
+input: {view: full_highres, long_side: 1536, crops: 0}
+infer: {batch_size: 1}
+subset: {size: 500, stratify_by: type, seed: 1}
+notes: "NF4도 약 203GB라 카드 1장에 안 들어간다. device_map=auto로 다중 카드 분산."

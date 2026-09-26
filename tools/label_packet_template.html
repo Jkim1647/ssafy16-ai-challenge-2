@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>dev 라벨링</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--fg:#1d2127;--mute:#69707a;--line:#d9dde3;--acc:#2563eb;--ok:#15803d;--warn:#b45309;--bad:#b91c1c;--sel:#dbeafe}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 "Malgun Gothic",system-ui,sans-serif}
+header{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:8px 12px;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+header b{font-size:15px}header input,header select{font:inherit;padding:4px 6px}
+button{font:inherit;padding:5px 10px;border:1px solid var(--line);background:#fff;border-radius:6px;cursor:pointer}button:hover{border-color:var(--acc)}
+button.primary{background:var(--acc);color:#fff;border-color:var(--acc)}
+main{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(360px,1fr);gap:12px;padding:12px;height:calc(100vh - 56px)}
+#imgbox{background:#222;border-radius:8px;overflow:auto;position:relative}
+#imgbox img{display:block;transform-origin:0 0;cursor:zoom-in}
+#imgbox.fit img{max-width:100%;max-height:100%;margin:auto}
+#imgtools{position:sticky;top:6px;left:6px;z-index:2;display:inline-flex;gap:4px;padding:6px}
+#imgtools button{padding:2px 8px;background:rgba(255,255,255,.9)}
+#panel{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;overflow:auto}
+.q{font-size:16px;font-weight:600;margin:4px 0 10px}
+.meta{color:var(--mute);font-size:12px}
+.choice{display:flex;gap:8px;width:100%;text-align:left;margin:5px 0;padding:8px 10px;font-size:15px}
+.choice kbd{min-width:22px}.choice.on{background:var(--sel);border-color:var(--acc);font-weight:600}
+.grid{display:grid;grid-template-columns:120px 1fr;gap:6px 8px;align-items:center;margin-top:10px}
+.grid select,.grid input,.grid textarea{font:inherit;padding:4px 6px;width:100%}
+textarea{resize:vertical;min-height:38px}
+.row{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+#msg{margin-top:8px;min-height:20px;font-weight:600}.err{color:var(--bad)}.okm{color:var(--ok)}
+kbd{font:11px monospace;border:1px solid var(--line);border-radius:3px;padding:0 3px;background:#f3f4f6;color:#333}
+.st-approved{color:var(--ok)}.st-needs_review{color:var(--warn)}.st-rejected{color:var(--bad)}
+#warn{display:none;background:#fef3c7;padding:6px 12px;border-bottom:1px solid #f59e0b}
+.help{font-size:12px;color:var(--mute);margin-top:10px}
+@media (max-width:900px){main{grid-template-columns:1fr;height:auto}#imgbox{height:60vh}}
+</style>
+</head>
+<body>
+<div id="warn"></div>
+<header>
+ <b id="title"></b>
+ <label>작업자 <input id="reviewer" size="8" placeholder="이름"></label>
+ <span id="stats"></span>
+ <select id="filter"><option value="all">전체</option><option value="todo">미작성·오류</option><option value="needs_review">보류</option><option value="rejected">거절</option></select>
+ <button id="prev">◀ 이전</button><span id="pos"></span><button id="next">다음 ▶</button>
+ <input id="jump" size="5" placeholder="번호">
+ <span style="flex:1"></span>
+ <button id="import">CSV 불러오기</button><input type="file" id="importFile" accept=".csv" hidden>
+ <button id="export" class="primary">결과 CSV 내보내기</button>
+</header>
+<main>
+ <div id="imgbox" class="fit">
+  <div id="imgtools"><button id="zin">＋</button><button id="zout">－</button><button id="zfit">맞춤</button><button id="z100">원본</button><button id="rot">⟳ 회전</button></div>
+  <img id="img" alt="">
+ </div>
+ <div id="panel">
+  <div class="meta" id="rid"></div>
+  <div class="q" id="question"></div>
+  <div id="choices"></div>
+  <div class="row">
+   <button id="pApprove" class="primary" title="확신도 high · clear · none · vqa_train · approved">승인 <kbd>Enter</kbd></button>
+   <button id="pAmbig" title="보류 + 이유 입력">애매함(보류) <kbd>Q</kbd></button>
+   <button id="pUnread" title="판독 불가: 정답 비우고 거절">판독 불가 <kbd>W</kbd></button>
+   <button id="pClear">이 문항 초기화</button>
+  </div>
+  <div class="grid">
+   <label>확신도</label><select id="confidence"><option value=""></option><option value="high">high — 확실</option><option value="medium">medium — 대체로 확실</option><option value="low">low — 불확실</option></select>
+   <label>판독성</label><select id="readability"><option value=""></option><option value="clear">clear — 선명하게 읽힘</option><option value="partial">partial — 일부만 읽힘</option><option value="unreadable">unreadable — 판독 불가</option></select>
+   <label>품질 문제</label><select id="quality_reason"><option value=""></option><option value="none">none — 문제 없음</option><option value="blur">blur — 흐림</option><option value="low_resolution">low_resolution — 저해상도</option><option value="glare">glare — 빛 반사</option><option value="occlusion">occlusion — 가려짐</option><option value="bad_crop">bad_crop — 잘림</option><option value="other">other — 기타</option></select>
+   <label>데이터 용도</label><select id="data_usage"><option value=""></option><option value="vqa_train">vqa_train — 정상 문항</option><option value="vision_auxiliary_candidate">vision_auxiliary_candidate</option><option value="exclude">exclude — 제외</option></select>
+   <label>검토 상태</label><select id="review_status"><option value=""></option><option value="approved">approved — 승인</option><option value="needs_review">needs_review — 보류</option><option value="rejected">rejected — 거절</option></select>
+   <label>근거 (필수)</label><input id="evidence" placeholder="정답 근거가 된 글자·위치 (예: 우측 하단 가격표 '24,990')">
+   <label>애매한 이유</label><input id="ambiguity_reason" placeholder="보류·거절일 때 필수">
+   <label>메모</label><input id="review_note">
+  </div>
+  <div id="msg"></div>
+  <div class="help">
+   <kbd>1</kbd>~<kbd>4</kbd> 보기 선택 · <kbd>Enter</kbd> 승인 후 다음 · <kbd>Q</kbd> 보류 · <kbd>W</kbd> 판독 불가 · <kbd>←</kbd>/<kbd>→</kbd> 이동 · 이미지 클릭 = 원본 크기 전환<br>
+   입력은 이 브라우저에 자동 저장됩니다. 다 끝나면 <b>결과 CSV 내보내기</b>로 받은 파일을 전달해 주세요. 다른 PC·브라우저로 옮길 때는 내보낸 CSV를 <b>CSV 불러오기</b>로 넣으면 이어서 할 수 있습니다.
+  </div>
+ </div>
+</main>
+<script>
+const META=/*__META__*/null;
+const BASE=/*__ROWS__*/[];
+const FIXED=["id","path","question","a","b","c","d","auto_type"];
+const WRITABLE=["human_answer","confidence","readability","quality_reason","data_usage","ambiguity_reason","evidence","reviewer","llm_assistance","review_status","review_note"];
+const ALLOWED={human_answer:["","a","b","c","d"],confidence:["","high","medium","low"],readability:["","clear","partial","unreadable"],quality_reason:["","none","blur","low_resolution","glare","occlusion","bad_crop","other"],data_usage:["","vqa_train","vision_auxiliary_candidate","exclude"],review_status:["","approved","needs_review","rejected"]};
+const KEY="label_packet::"+META.packet;
+const $=id=>document.getElementById(id);
+let store=true,labels={},view=[],cur=0,zoom=1,rot=0;
+function load(){try{const s=localStorage.getItem(KEY);if(s)labels=JSON.parse(s)}catch(e){store=false}
+ try{localStorage.setItem(KEY+"::probe","1");localStorage.removeItem(KEY+"::probe")}catch(e){store=false}
+ if(!store){$("warn").style.display="block";$("warn").textContent="이 브라우저는 자동 저장이 안 됩니다(사생활 보호 모드 등). 중간중간 '결과 CSV 내보내기'로 저장하세요."}}
+function persist(){const rv=$("reviewer").value.trim();if(rv)Object.values(labels).forEach(f=>{if(f)f.reviewer=rv});if(!store)return;try{localStorage.setItem(KEY,JSON.stringify(labels));localStorage.setItem(KEY+"::reviewer",$("reviewer").value)}catch(e){}}
+function rec(id){return labels[id]||(labels[id]=Object.fromEntries(WRITABLE.map(k=>[k,""])))}
+function validate(f){
+ for(const k in ALLOWED)if(!ALLOWED[k].includes(f[k]||""))return `${k} 값이 허용되지 않습니다`;
+ const pr=["partial","unreadable"].includes(f.readability);
+ if(pr&&f.human_answer)return "partial/unreadable이면 정답을 비워야 합니다";
+ if(pr&&f.data_usage==="vqa_train")return "partial/unreadable이면 데이터 용도는 exclude 등이어야 합니다";
+ if(f.review_status){
+  const e=["readability","quality_reason","data_usage"].filter(k=>!f[k]);if(e.length)return "빈 칸: "+e.join(", ");
+  if(f.review_status!=="approved"&&!(f.ambiguity_reason||f.review_note))return "보류·거절은 '애매한 이유'나 '메모'를 적어야 합니다";
+  if(!f.reviewer)return "상단에 작업자 이름을 적어 주세요"}
+ if(f.review_status==="approved"){
+  const need={정답:["a","b","c","d"].includes(f.human_answer),"확신도 high/medium":["high","medium"].includes(f.confidence),"판독성 clear":f.readability==="clear","품질 none":f.quality_reason==="none","용도 vqa_train":f.data_usage==="vqa_train",근거:!!(f.evidence||"").trim()};
+  const bad=Object.keys(need).filter(k=>!need[k]);if(bad.length)return "승인 조건 부족: "+bad.join(", ")}
+ return null}
+function st(id){const f=labels[id];if(!f||!f.review_status)return "";return validate(f)?"bad":f.review_status}
+function stats(){const c={approved:0,needs_review:0,rejected:0,todo:0,bad:0};BASE.forEach(r=>{const s=st(r.id);if(!s)c.todo++;else c[s]++});
+ $("stats").innerHTML=`완료 <b>${BASE.length-c.todo}</b>/${BASE.length} · <span class="st-approved">승인 ${c.approved}</span> · <span class="st-needs_review">보류 ${c.needs_review}</span> · <span class="st-rejected">거절 ${c.rejected}</span>`+(c.bad?` · <span class="err">입력 오류 ${c.bad}</span>`:"");$("reviewer").style.outline=$("reviewer").value.trim()?"":"3px solid #f59e0b"}
+function refilter(keep){const f=$("filter").value;const id=keep&&view.length?BASE[view[cur]].id:null;
+ view=BASE.map((r,i)=>i).filter(i=>{const s=st(BASE[i].id);return f==="all"||(f==="todo"&&(!s||s==="bad"))||s===f});
+ cur=id?Math.max(0,view.findIndex(i=>BASE[i].id===id)):0;if(cur<0)cur=0}
+function setImg(){const im=$("img"),box=$("imgbox");im.style.transform=`rotate(${rot}deg)`;
+ if(zoom===0){box.classList.add("fit");im.style.width="";im.style.transform=rot?`rotate(${rot}deg)`:"";im.style.transformOrigin="center";im.style.cursor="zoom-in"}
+ else{box.classList.remove("fit");im.style.width=(im.naturalWidth*zoom)+"px";im.style.transformOrigin="center";im.style.cursor="zoom-out"}}
+function show(){stats();if(!view.length){$("pos").textContent="0/0";$("question").textContent="(해당 문항 없음)";$("choices").innerHTML="";$("img").removeAttribute("src");return}
+ const r=BASE[view[cur]],f=rec(r.id);$("pos").textContent=`${cur+1}/${view.length}`;
+ $("rid").textContent=`#${view[cur]+1} · ${r.id} · ${r.auto_type}`;$("question").textContent=r.question;
+ $("choices").innerHTML="";["a","b","c","d"].forEach((k,i)=>{const b=document.createElement("button");b.className="choice"+(f.human_answer===k?" on":"");
+  b.innerHTML=`<kbd>${i+1}</kbd><span><b>${k}.</b> </span>`;b.querySelector("span").append(document.createTextNode(r[k]));b.onclick=()=>pick(k);$("choices").append(b)});
+ ["confidence","readability","quality_reason","data_usage","review_status","evidence","ambiguity_reason","review_note"].forEach(k=>$(k).value=f[k]||"");
+ $("msg").textContent="";$("msg").className="";zoom=0;rot=0;$("img").onload=setImg;$("img").src=r.img;$("jump").value=""}
+function readForm(){const r=BASE[view[cur]],f=rec(r.id);
+ ["confidence","readability","quality_reason","data_usage","review_status","evidence","ambiguity_reason","review_note"].forEach(k=>f[k]=$(k).value.trim?$(k).value.trim():$(k).value);
+ f.reviewer=$("reviewer").value.trim();f.llm_assistance="none";return f}
+function commit(advance){if(!view.length)return true;const f=readForm();const e=validate(f);
+ if(e){$("msg").textContent=e;$("msg").className="err";persist();return false}
+ persist();stats();$("msg").textContent=f.review_status?"저장됨":"";$("msg").className="okm";
+ if(advance){const f0=$("filter").value;if(f0!=="all"){refilter(false);cur=Math.min(cur,Math.max(0,view.length-1))}else if(cur<view.length-1)cur++;show()}return true}
+function pick(k){const f=rec(BASE[view[cur]].id);f.human_answer=f.human_answer===k?"":k;
+ // 판독 불가로 뒀다가 보기를 고르면 판독 불가 표시를 푼다(마음을 바꾼 경우)
+ if(f.human_answer&&["partial","unreadable"].includes($("readability").value)){["readability","quality_reason","data_usage","review_status","confidence"].forEach(x=>$(x).value="");if($("ambiguity_reason").value==="판독 불가")$("ambiguity_reason").value=""}
+ readForm();persist();
+ [...$("choices").children].forEach((b,i)=>b.classList.toggle("on",["a","b","c","d"][i]===f.human_answer))}
+function preset(p){const f=rec(BASE[view[cur]].id);
+ if(p==="approve"){if(!$("confidence").value)$("confidence").value="high";$("readability").value="clear";$("quality_reason").value="none";$("data_usage").value="vqa_train";$("review_status").value="approved";
+  if(!f.human_answer){$("msg").textContent="보기를 먼저 고르세요 (1~4)";$("msg").className="err";readForm();persist();return}
+  if(!$("evidence").value.trim()){readForm();persist();$("msg").textContent="근거를 적고 다시 Enter";$("msg").className="err";$("evidence").focus();return}
+  commit(true)}
+ else if(p==="ambig"){$("review_status").value="needs_review";if(!$("confidence").value)$("confidence").value="low";if(!$("readability").value)$("readability").value="clear";if(!$("quality_reason").value)$("quality_reason").value="none";if(!$("data_usage").value)$("data_usage").value="vqa_train";readForm();persist();$("ambiguity_reason").focus();$("msg").textContent="애매한 이유를 적고 Enter(저장·다음)";$("msg").className=""}
+ else if(p==="unread"){f.human_answer="";$("readability").value="unreadable";if(!$("quality_reason").value||$("quality_reason").value==="none")$("quality_reason").value="blur";$("data_usage").value="exclude";$("review_status").value="rejected";$("confidence").value="";if(!$("ambiguity_reason").value)$("ambiguity_reason").value="판독 불가";readForm();commit(true)}
+ else if(p==="clear"){labels[BASE[view[cur]].id]=undefined;delete labels[BASE[view[cur]].id];persist();show()}}
+function csvCell(v){v=v==null?"":String(v);return /[",\r\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v}
+function exportCsv(){if(view.length)readForm();persist();const head=[...FIXED,...WRITABLE];
+ const lines=[head.join(",")].concat(BASE.map(r=>{const f=labels[r.id]||{};return head.map(k=>csvCell(FIXED.includes(k)?r[k]:(f[k]||""))).join(",")}));
+ // Excel에서 한글이 깨지지 않게 BOM 포함(사람이 여는 반환 파일, CLAUDE.md 인코딩 규칙 2)
+ const blob=new Blob(["﻿"+lines.join("\r\n")+"\r\n"],{type:"text/csv;charset=utf-8"});
+ const who=($("reviewer").value.trim()||"noname").replace(/[^\w가-힣-]/g,"");
+ const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`labels_${META.packet}_${who}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
+function parseCsv(t){t=t.replace(/^﻿/,"");const rows=[];let row=[],v="",q=false;for(let i=0;i<t.length;i++){const c=t[i];
+ if(q){if(c==='"'){if(t[i+1]==='"'){v+='"';i++}else q=false}else v+=c}
+ else if(c==='"')q=true;else if(c===","){row.push(v);v=""}else if(c==="\n"){row.push(v.replace(/\r$/,""));rows.push(row);row=[];v=""}else v+=c}
+ if(v||row.length){row.push(v);rows.push(row)}const h=rows.shift();return rows.filter(r=>r.length>1).map(r=>Object.fromEntries(h.map((k,i)=>[k,r[i]||""])))}
+function importCsv(file){const rd=new FileReader();rd.onload=()=>{try{const rows=parseCsv(rd.result);const ids=new Set(BASE.map(r=>r.id));let n=0,skip=0;
+ rows.forEach(r=>{if(!ids.has(r.id)){skip++;return}const f={};WRITABLE.forEach(k=>f[k]=r[k]||"");if(WRITABLE.some(k=>f[k])){labels[r.id]=f;n++}});
+ if(!$("reviewer").value){const rv=rows.find(r=>r.reviewer);if(rv)$("reviewer").value=rv.reviewer}
+ persist();refilter(false);show();alert(`${n}개 문항을 불러왔습니다`+(skip?` (이 패킷에 없는 ${skip}행 무시)`:""))}catch(e){alert("CSV를 읽지 못했습니다: "+e)}};rd.readAsText(file,"utf-8")}
+function go(d){if(!view.length)return;readForm();persist();cur=Math.max(0,Math.min(view.length-1,cur+d));show()}
+$("title").textContent=`dev 라벨링 · ${META.packet} (${META.n}문항)`;document.title=`라벨링 ${META.pid}`;
+load();try{$("reviewer").value=localStorage.getItem(KEY+"::reviewer")||""}catch(e){}
+$("reviewer").oninput=()=>{persist();stats()};$("filter").onchange=()=>{if(view.length)readForm();refilter(false);show()};
+$("prev").onclick=()=>go(-1);$("next").onclick=()=>go(1);
+$("jump").onkeydown=e=>{if(e.key==="Enter"){const n=parseInt($("jump").value,10)-1;const k=view.indexOf(n);if(k>=0){readForm();persist();cur=k;show()}else{$("msg").textContent="현재 필터에 없는 번호입니다";$("msg").className="err"}}};
+$("pApprove").onclick=()=>preset("approve");$("pAmbig").onclick=()=>preset("ambig");$("pUnread").onclick=()=>preset("unread");$("pClear").onclick=()=>{if(confirm("이 문항 입력을 지울까요?"))preset("clear")};
+["confidence","readability","quality_reason","data_usage","review_status"].forEach(k=>$(k).onchange=()=>{readForm();persist()});
+["evidence","ambiguity_reason","review_note"].forEach(k=>$(k).oninput=()=>{readForm();persist()});
+$("export").onclick=exportCsv;$("import").onclick=()=>$("importFile").click();$("importFile").onchange=e=>{if(e.target.files[0])importCsv(e.target.files[0]);e.target.value=""};
+$("img").onclick=()=>{zoom=zoom===0?1:0;setImg()};$("zin").onclick=()=>{zoom=(zoom||0.5)*1.5;setImg()};$("zout").onclick=()=>{zoom=zoom?Math.max(0.2,zoom/1.5):0;setImg()};
+$("zfit").onclick=()=>{zoom=0;setImg()};$("z100").onclick=()=>{zoom=1;setImg()};$("rot").onclick=()=>{rot=(rot+90)%360;setImg()};
+document.addEventListener("keydown",e=>{const t=e.target.tagName;const typing=t==="TEXTAREA"||(t==="INPUT"&&e.target.type!=="file")||t==="SELECT";
+ if(e.key==="Enter"&&!e.shiftKey&&t!=="TEXTAREA"&&e.target.id!=="jump"&&e.target.id!=="reviewer"){e.preventDefault();const s=$("review_status").value;if(s&&s!=="approved")commit(true);else preset("approve");return}
+ if(e.key==="Enter"&&e.ctrlKey&&t==="TEXTAREA"){e.preventDefault();preset("approve");return}
+ if(typing)return;
+ if(["1","2","3","4"].includes(e.key)){e.preventDefault();pick(["a","b","c","d"][+e.key-1])}
+ else if(e.key==="ArrowRight")go(1);else if(e.key==="ArrowLeft")go(-1);
+ else if(e.key==="q"||e.key==="Q"){e.preventDefault();preset("ambig")}else if(e.key==="w"||e.key==="W"){e.preventDefault();preset("unread")}});
+window.addEventListener("beforeunload",()=>{if(view.length)readForm();persist()});
+refilter(false);show();
+</script>
+</body>
+</html>

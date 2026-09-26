@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+.venv/
+baseline/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+kaggle.json
+*credentials*.json
+
+# 대회 데이터와 그 파생물은 공개 저장소에 넣지 않는다
+/ssafy-16-2-ai/
+*.zip
+/data/
+/runs/
+/shared_predictions/
+/submissions/
+/outputs/
+*.safetensors
+*.tgz
+reports/**/*.csv
+reports/**/*.xlsx
+reports/**/*.html
+reports/**/*.jsonl

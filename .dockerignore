@@ -1,0 +1,49 @@
+# Git / venv
+.git
+.venv
+baseline/
+**/__pycache__
+*.py[cod]
+.ipynb_checkpoints
+.pytest_cache
+.ruff_cache
+*.egg-info
+
+# 대회 데이터 / 대용량 배포 원본 (볼륨 마운트로만 접근)
+data/
+downloads/
+train/
+dev/
+test/
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.pdf
+
+# 실행 산출물
+runs/
+checkpoints/
+logs/
+artifacts/
+tmp/
+submissions/
+Claude outputs/
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+
+# 개인 측정 산출물
+results_*.csv
+gpulog_*.csv
+power_log_*.csv
+progress_*.json
+sweep_*.csv
+
+# 기타
+zip_inventory.csv
+zip_summary.txt
+.env
+.env.*
+!.env.example

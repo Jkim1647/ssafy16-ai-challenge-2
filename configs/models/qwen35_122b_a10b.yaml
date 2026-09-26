@@ -1,0 +1,42 @@
+# Qwen3.5-122B-A10B — MoE, 대형 주력 후보 (담당: 김민우)
+name: qwen35_122b_a10b
+adapter: qwen35
+hf_id: Qwen/Qwen3.5-122B-A10B
+family: qwen35
+
+architecture:
+  dense: false
+  total_params_b: 122
+  active_params_b: 10
+  layers: 48
+  full_attention_layers: 12
+  full_attention_interval: 4   # [확인] 2026-09-17 config.json
+  hidden_size: 3072
+  kv_heads: 2
+  head_dim: 256
+  experts_total: 256
+  experts_active: 9
+  expert_intermediate: 1024
+  context: 262144
+
+vision:                  # [확인] 2026-09-17, 35B와 동일
+  patch_size: 16
+  spatial_merge_size: 2
+  pixels_per_token: 1024
+  min_pixels: 313600
+  max_pixels: 7840000
+
+load:
+  dtype: bfloat16
+  quantization: nf4      # FFT 약 2.2TB로 사실상 불가 — PEFT만
+  attn_implementation: flash_attention_2
+  trust_remote_code: true
+
+peft_targets:
+  default: ["q_proj", "k_proj", "v_proj", "o_proj"]
+  moe_experts: ["experts.gate_up_proj", "experts.down_proj"]
+
+estimates:
+  vram_infer_gb: {bfloat16: 247, int8: 125, nf4: 65}
+  fft_state_gb: 2200
+  fits_5060ti_16gb: []

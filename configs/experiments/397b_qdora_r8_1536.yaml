@@ -1,0 +1,7 @@
+name: 397b_qdora_r8_1536
+model: qwen35_397b_a17b
+resource: runpod_b300x2
+task: train
+input: {view: full_highres, long_side: 1536, crops: 0}
+train: {method: qdora, r: 8, lr: 1.0e-5, epochs: 1, grad_accum: 32, target: default}
+notes: "397b_qlora_r8_1536과 한 축(LoRA↔DoRA)만 다르게 둔다."

@@ -1,0 +1,15 @@
+name: runpod_b300x1
+kind: runpod
+gpu: {model: "B300", vram_gb: 288, count: 1}
+cost: {usd_per_hour: 7.89, krw_per_hour: 10809, metered: true}  # 환율 1,370원 기준
+capacity: {gpu_hours_total: null}
+limits:
+  allow_fft: false            # 288GB — 35B FFT(630GB) 불가
+  max_model_params_b: 122
+budget_guard:
+  max_cost_krw: 700000
+  max_runtime_hours: 12
+  auto_downshift_to: colab_h100
+policy:
+  unattended_ok: false
+  preferred_for: ["122B QLoRA/QDoRA", "397B Int4 ceiling"]

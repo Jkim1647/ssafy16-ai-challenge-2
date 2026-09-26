@@ -1,0 +1,12 @@
+# Scale-up gate: 35B + 최적 입력 대비 122B가 추가 정답을 만드는지만 본다.
+name: 122b_qlora_r8_crop
+model: qwen35_122b_a10b
+resource: runpod_b300x1
+task: train
+input: {view: full_crop, long_side: 1024, crops: 4, crop_long_side: 1024}
+train: {method: qlora, r: 8, lr: 2.0e-5, epochs: 1, grad_accum: 32, target: default}
+gate:
+  compare_against: 35b_qdora_r8_1536
+  min_netgain: 0.0        # NetGain ≤ 0이면 122B 확대를 중단하고 crop·OCR·앙상블로 예산을 돌린다
+  subset_size: 500
+notes: "비전 지표상 35B→122B 이득이 0~+0.1이다. 우리 데이터에서 이 패턴이 깨질 때만 확대한다."

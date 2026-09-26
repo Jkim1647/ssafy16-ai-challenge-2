@@ -1,0 +1,8 @@
+# 주력 후보 학습. 9B에서 확정한 방향이 35B로 전이되는지 보는 지점.
+name: 35b_qdora_r8_1536
+model: qwen36_35b_a3b
+resource: runpod_b300x1
+task: train
+input: {view: full_highres, long_side: 1536, crops: 0}
+train: {method: qdora, r: 8, lr: 2.0e-5, epochs: 2, grad_accum: 16, target: default}
+notes: "MoE PEFT smoke test(저장→재시작→재로드→추론→merge)를 통과한 뒤에만 본학습으로 확대한다."

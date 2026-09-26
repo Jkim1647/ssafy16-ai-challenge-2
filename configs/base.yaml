@@ -1,0 +1,84 @@
+# 모든 experiment가 상속하는 기본값. experiment YAML의 키가 이 값을 덮어쓴다.
+# 여기 있는 값은 "고정 설정" — 한 번 정하면 대회 내내 바꾸지 않는다(CLAUDE.md 8-2절).
+
+seed: 1
+
+data:
+  root: ssafy-16-2-ai
+  train_csv: ssafy-16-2-ai/train.csv
+  dev_csv: ssafy-16-2-ai/dev.csv
+  test_csv: ssafy-16-2-ai/test.csv
+  image_dirs: {train: ssafy-16-2-ai/train, dev: ssafy-16-2-ai/dev, test: ssafy-16-2-ai/test}
+  # CSV 스키마: 09/21 암호 해제 후 확정(train: id,path,question,a,b,c,d,answer).
+  # null이면 src/data.py가 헤더에서 자동 추론하고, 추론 결과를 run 디렉터리에 기록한다.
+  columns:
+    id: id
+    image: path
+    question: question
+    choices: [a, b, c, d]  # 09/21 확정: 보기별 컬럼
+    choice_prefixes: ["a", "b", "c", "d"]   # 정답 컬럼이 소문자다. 대문자로 두면 학습 시 정답 매칭 실패
+    answer: answer         # test에는 없고, dev는 answer1~5(라벨러별)라 없는 split은 None으로 둔다
+  split:
+    file: data_meta/train_val_split.csv   # 팀 공용 holdout. 있으면 아래 group 설정보다 우선한다
+    strategy: group        # group | random — file이 없을 때만 쓰는 폴백
+    group_key: image       # 같은 이미지가 train/val에 동시에 들어가지 않게 한다
+    val_fraction: 0.1
+    cache: runs/_splits    # 한 번 만든 split은 파일로 고정한다
+
+input:
+  view: full               # full | full_highres | full_crop | full_ocr | full_crop_ocr
+  long_side: 1024          # 리사이즈 목표 긴 변. null이면 원본 유지
+  crops: 0                 # 0 | 4 (2x2) | 9 (3x3)
+  crop_overlap: 0.1
+  crop_long_side: 1024
+  keep_aspect_ratio: true
+  interpolation: bicubic   # 고정. 보간법이 바뀌면 같은 해상도라도 픽셀이 달라진다
+  # 전체 이미지 업스케일과 AI super-resolution은 금지다(hallucination 위험).
+  allow_upscale: false
+  ocr: {enabled: false, engine: paddle, cache: runs/_ocr}
+
+prompt:
+  template: choice_letter  # 답을 A/B/C/D 한 글자로만 내게 한다
+  system: null
+  include_ocr_text: false
+  shuffle_choices: false   # 위치 편향 측정 실험에서만 true
+  enable_thinking: false   # Qwen3.5 템플릿 기본값(true)을 끈다. 켜면 채점 위치가 <think> 안이 된다
+
+decode:
+  method: choice_loglikelihood   # choice_loglikelihood | generate
+  temperature: 0.0
+  max_new_tokens: 4
+
+train:
+  method: qlora            # lora | qlora | dora | qdora | fft
+  r: 8
+  alpha: 16
+  dropout: 0.05
+  target: default          # default | with_experts
+  lr: 2.0e-5
+  weight_decay: 0.0
+  warmup_ratio: 0.03
+  epochs: 2
+  microbatch: 1
+  grad_accum: 16
+  grad_checkpointing: true
+  optimizer: adamw_torch
+  max_grad_norm: 1.0
+  loss_masking: true       # 질문·선택지는 마스킹, 정답 토큰에만 loss
+  eval_every_steps: 50
+  save_best_by: accuracy   # loss 기준 금지
+  early_stopping_patience: 2
+
+infer:
+  batch_size: 1
+  save_logits: true        # 재학습 없이 앙상블 가중치를 재탐색하기 위해 전부 저장
+  save_predictions: true
+
+evaluate:
+  metrics: [accuracy, macro_accuracy, per_type_accuracy, confidence]
+  type_column: null        # 유형 taxonomy가 생기면 여기에 컬럼명을 넣는다
+  types: [Overall, OCR, Number, TimeDate, Table, Logo, Scene, Object, Relation, Composite]
+
+tracker:
+  runs_dir: runs
+  log_every_steps: 10

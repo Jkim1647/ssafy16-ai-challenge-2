@@ -1,0 +1,13 @@
+# 9b_zs_orig와 같은 조건을 석웅 브랜치 split(val 667, 중복 45건 제외)으로 평가한다.
+# 목적: split 통일 전 두 파이프라인 결과 대조(석웅 9B 0.940030 = 627/667).
+# 주의: 이 val 667과 train_val_split.csv의 val 669는 69건만 겹친다 — 서로 비교 금지.
+name: 9b_zs_orig_g667
+model: qwen35_9b
+resource: local_5060ti
+task: infer
+data:
+  split:
+    file: data_meta/splits/1_group.json
+    exclude_file: data_meta/train_duplicate_exclusions.csv
+input: {view: full, long_side: null, crops: 0}
+notes: "zero-shot, 원본 해상도, enable_thinking=false. 석웅 split 대조용."

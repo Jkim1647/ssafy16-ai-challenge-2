@@ -1,0 +1,15 @@
+name: runpod_b200x2
+kind: runpod
+gpu: {model: "B200", vram_gb: 180, count: 2}
+cost: {usd_per_hour: 5.98, krw_per_hour: 8193, metered: true}   # 실단가·환율은 당일 재확인
+capacity: {gpu_hours_total: null}
+limits:
+  allow_fft: false            # 360GB — 35B FFT(630GB)에 못 미친다
+  max_model_params_b: 122
+budget_guard:
+  max_cost_krw: 400000
+  max_runtime_hours: 8
+  auto_downshift_to: local_5060ti
+policy:
+  unattended_ok: false
+  preferred_for: ["122B QLoRA", "병렬 추론"]

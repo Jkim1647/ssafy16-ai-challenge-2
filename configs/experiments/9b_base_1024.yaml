@@ -1,0 +1,8 @@
+# D1: 저비용 기준점. 해상도·crop 이득을 재기 전의 anchor.
+name: 9b_base_1024
+model: qwen35_9b
+resource: local_5060ti
+task: infer
+input: {view: full, long_side: 1024, crops: 0}
+infer: {batch_size: 2}
+notes: "zero-shot. processor가 만든 실제 visual_token 수를 반드시 로그로 확인한다."

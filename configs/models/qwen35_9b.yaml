@@ -1,0 +1,38 @@
+# Qwen3.5-9B — Dense, 저비용 탐색 슬롯 (담당: 김현호·박건순)
+name: qwen35_9b
+adapter: qwen35
+hf_id: Qwen/Qwen3.5-9B
+family: qwen35
+
+architecture:            # [확인] 모델 카드 / config.json
+  dense: true
+  total_params_b: 9
+  active_params_b: 9
+  layers: 32
+  full_attention_layers: 8
+  hidden_size: 4096
+  kv_heads: 4            # 주의: 라인업에서 유일하게 4다. KV cache 식을 복사하지 말 것
+  head_dim: 256
+  context: 262144
+
+vision:                  # [확인] 2026-09-17, 9B config.json이 35B와 동일
+  patch_size: 16
+  spatial_merge_size: 2
+  pixels_per_token: 1024
+  min_pixels: 313600
+  max_pixels: 7840000
+
+load:
+  dtype: bfloat16
+  quantization: nf4      # none | int8 | nf4
+  attn_implementation: flash_attention_2
+  trust_remote_code: true
+
+peft_targets:
+  default: ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+  moe_experts: []        # dense 모델이라 해당 없음
+
+estimates:               # [계산] 실측 아님. 첫 smoke test에서 덮어쓴다
+  vram_infer_gb: {bfloat16: 19, int8: 10, nf4: 6}
+  fft_state_gb: 162
+  fits_5060ti_16gb: ["int8", "nf4"]

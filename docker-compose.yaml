@@ -1,0 +1,45 @@
+# docker-compose.yaml — AI_2_CHALLENGE 팀 공용 개발 환경
+# 실행: docker compose up --build -d
+# 접속: http://localhost:8889  (token: .env 의 JUPYTER_TOKEN)
+# 포트를 8889로 둔 이유: Ch.4~5 실습 컨테이너가 8888을 쓰므로 겹치지 않게 분리
+#
+# mem_limit / cpus 는 학습 프로세스가 폭주해도 컨테이너 안에서만 OOM-killed 되게 막아
+# Windows(크롬 등 다른 프로그램 포함) 전체가 다운되는 걸 방지한다.
+# 각자 PC 사양에 맞게 .env에 AI2_MEM_LIMIT / AI2_CPU_LIMIT 를 지정해 조정할 것
+# (지정 안 하면 아래 기본값 사용).
+services:
+  lab:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ai2-challenge:latest
+    container_name: ai2-challenge-lab
+    ports:
+      - "8889:8888"
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    shm_size: "8g"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      - PYTHONUNBUFFERED=1
+      - TZ=Asia/Seoul
+      - JUPYTER_TOKEN=${JUPYTER_TOKEN:?JUPYTER_TOKEN 을 .env 에 지정하세요}
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    # 시스템 RAM/CPU 오남용으로 인한 Windows 전체 다운 방지용 제한
+    # (VRAM은 호스트 GPU와 공유되므로 여기서 제한되지 않음)
+    mem_limit: ${AI2_MEM_LIMIT:-24g}
+    cpus: ${AI2_CPU_LIMIT:-20}
+    # GPU 전달 — GPU가 없어도 에러 없이 CPU로 실행됨
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

@@ -1,0 +1,13 @@
+name: colab_h100
+kind: colab
+gpu: {model: "H100", vram_gb: 80, count: 1}
+cost: {krw_per_hour: 0, metered: true, unit: "compute units"}
+capacity:
+  gpu_hours_total: 7          # 대회 전 실제 잔량을 반드시 재확인한다
+  verified: false
+limits:
+  allow_fft: false
+  max_model_params_b: 35      # NF4 기준. BF16 35B는 약 74GB로 빠듯하다
+policy:
+  unattended_ok: false
+  preferred_for: ["35B baseline", "9B→35B 전이 확인", "QLoRA vs QDoRA"]

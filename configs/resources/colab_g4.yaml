@@ -1,0 +1,13 @@
+name: colab_g4
+kind: colab
+gpu: {model: "RTX PRO 6000 Blackwell Server Edition", vram_gb: 96, count: 1}   # 2026-09-21 실측(nvidia-smi 97,887MiB)
+cost: {krw_per_hour: 0, metered: true, unit: "compute units", units_per_hour: 8.9}   # 2026-09-21 Colab 리소스 창 표시값
+capacity:
+  gpu_hours_total: null       # Pro+ 잔여 단위로 결정(2026-09-21 19시 기준 약 270단위)
+  verified: true
+limits:
+  allow_fft: false
+  max_model_params_b: 35      # BF16 35B-A3B 추론 약 70GB 실측. 학습은 9B까지만 검증
+policy:
+  unattended_ok: false
+  preferred_for: ["35B/27B zero-shot", "9B LoRA probe", "122B GPTQ-Int4 smoke"]

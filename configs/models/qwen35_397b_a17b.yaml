@@ -1,0 +1,43 @@
+# Qwen3.5-397B-A17B — MoE, ceiling / teacher 후보 (담당: 윤석웅)
+name: qwen35_397b_a17b
+adapter: qwen35
+hf_id: Qwen/Qwen3.5-397B-A17B
+family: qwen35
+
+architecture:
+  dense: false
+  total_params_b: 397
+  active_params_b: 17
+  layers: 60
+  full_attention_layers: 15
+  hidden_size: 4096
+  kv_heads: 2
+  head_dim: 256
+  experts_total: 512     # 다른 모델의 2배
+  experts_active: 11     # routed 10 + shared 1
+  expert_intermediate: 1024
+  context: 262144
+
+vision:                  # [미확인] config.json 직접 조회 전. 같은 vision tower일 가능성이 높다
+  patch_size: 16
+  spatial_merge_size: 2
+  pixels_per_token: 1024
+  min_pixels: 313600
+  max_pixels: 7840000
+  verified: false
+
+load:
+  dtype: bfloat16
+  quantization: nf4      # NF4도 약 203GB — 카드 1장에 안 들어간다
+  attn_implementation: flash_attention_2
+  trust_remote_code: true
+  device_map: auto
+
+peft_targets:
+  default: ["q_proj", "k_proj", "v_proj", "o_proj"]
+  moe_experts: ["experts.gate_up_proj", "experts.down_proj"]
+
+estimates:
+  vram_infer_gb: {bfloat16: 799, int8: 400, nf4: 203}
+  fft_state_gb: 7000
+  fits_5060ti_16gb: []

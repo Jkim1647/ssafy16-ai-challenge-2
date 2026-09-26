@@ -1,0 +1,316 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1814 974" width="1814" height="974" font-family="Pretendard, 'Noto Sans KR', 'Malgun Gothic', sans-serif">
+<rect width="100%" height="100%" fill="#fcfcfb"/>
+<text x="60" y="40" font-size="24" font-weight="700" fill="#0b0b0b">모델 예측이 앙상블 제출로 엮인 계보</text>
+<text x="60" y="66" font-size="14" fill="#52514e">아크 = 구성원 → 제출. 색은 출발 모델 계열, 회색은 이전 제출을 다시 섞은 것. 진한 선은 최종 선택 T28·T30으로 이어진 계보. 축 아래 막대 = Public 점수(0.94~0.98, 09-26 기준).</text>
+<path d="M60,700 A287.0,264.04 0 0 1 634,700" fill="none" stroke="#eda100" stroke-width="1.2" stroke-opacity="0.16"><title>9b_zs → E1</title></path>
+<path d="M150,700 A242.0,222.64000000000001 0 0 1 634,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_zs → E1</title></path>
+<path d="M360,700 A152.0,139.84 0 0 1 664,700" fill="none" stroke="#008300" stroke-width="1.2" stroke-opacity="0.16"><title>27b_zs → E2</title></path>
+<path d="M150,700 A257.0,236.44 0 0 1 664,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_zs → E2</title></path>
+<path d="M180,700 A257.0,236.44 0 0 1 694,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_rt → E3</title></path>
+<path d="M450,700 A122.0,112.24000000000001 0 0 1 694,700" fill="none" stroke="#4a3aa7" stroke-width="1.2" stroke-opacity="0.16"><title>397b → E3</title></path>
+<path d="M180,700 A272.0,250.24 0 0 1 724,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_rt → E4</title></path>
+<path d="M450,700 A137.0,126.04 0 0 1 724,700" fill="none" stroke="#4a3aa7" stroke-width="1.2" stroke-opacity="0.16"><title>397b → E4</title></path>
+<path d="M390,700 A182.0,167.44 0 0 1 754,700" fill="none" stroke="#008300" stroke-width="1.2" stroke-opacity="0.16"><title>27b_lora → S2</title></path>
+<path d="M450,700 A152.0,139.84 0 0 1 754,700" fill="none" stroke="#4a3aa7" stroke-width="1.2" stroke-opacity="0.16"><title>397b → S2</title></path>
+<path d="M390,700 A197.0,181.24 0 0 1 784,700" fill="none" stroke="#008300" stroke-width="1.2" stroke-opacity="0.16"><title>27b_lora → S3</title></path>
+<path d="M180,700 A302.0,277.84000000000003 0 0 1 784,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_rt → S3</title></path>
+<path d="M450,700 A167.0,153.64000000000001 0 0 1 784,700" fill="none" stroke="#4a3aa7" stroke-width="1.2" stroke-opacity="0.16"><title>397b → S3</title></path>
+<path d="M390,700 A212.0,195.04000000000002 0 0 1 814,700" fill="none" stroke="#008300" stroke-width="1.2" stroke-opacity="0.16"><title>27b_lora → S4</title></path>
+<path d="M180,700 A317.0,291.64 0 0 1 814,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_rt → S4</title></path>
+<path d="M450,700 A182.0,167.44 0 0 1 814,700" fill="none" stroke="#4a3aa7" stroke-width="1.2" stroke-opacity="0.16"><title>397b → S4</title></path>
+<path d="M90,700 A362.0,333.04 0 0 1 814,700" fill="none" stroke="#eda100" stroke-width="1.2" stroke-opacity="0.16"><title>9b_lora → S4</title></path>
+<path d="M390,700 A227.0,208.84 0 0 1 844,700" fill="none" stroke="#008300" stroke-width="1.2" stroke-opacity="0.16"><title>27b_lora → T1</title></path>
+<path d="M180,700 A332.0,305.44 0 0 1 844,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_rt → T1</title></path>
+<path d="M450,700 A197.0,181.24 0 0 1 844,700" fill="none" stroke="#4a3aa7" stroke-width="1.2" stroke-opacity="0.16"><title>397b → T1</title></path>
+<path d="M90,700 A377.0,346.84000000000003 0 0 1 844,700" fill="none" stroke="#eda100" stroke-width="1.2" stroke-opacity="0.16"><title>9b_lora → T1</title></path>
+<path d="M480,700 A182.0,167.44 0 0 1 844,700" fill="none" stroke="#eb6834" stroke-width="1.2" stroke-opacity="0.16"><title>gemma → T1</title></path>
+<path d="M390,700 A242.0,222.64000000000001 0 0 1 874,700" fill="none" stroke="#008300" stroke-width="1.2" stroke-opacity="0.16"><title>27b_lora → T2</title></path>
+<path d="M180,700 A347.0,319.24 0 0 1 874,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_rt → T2</title></path>
+<path d="M450,700 A212.0,195.04000000000002 0 0 1 874,700" fill="none" stroke="#4a3aa7" stroke-width="1.2" stroke-opacity="0.16"><title>397b → T2</title></path>
+<path d="M90,700 A392.0,360.64000000000004 0 0 1 874,700" fill="none" stroke="#eda100" stroke-width="1.2" stroke-opacity="0.16"><title>9b_lora → T2</title></path>
+<path d="M480,700 A197.0,181.24 0 0 1 874,700" fill="none" stroke="#eb6834" stroke-width="1.2" stroke-opacity="0.16"><title>gemma → T2</title></path>
+<path d="M420,700 A242.0,222.64000000000001 0 0 1 904,700" fill="none" stroke="#008300" stroke-width="1.2" stroke-opacity="0.16"><title>r3 → T3</title></path>
+<path d="M180,700 A362.0,333.04 0 0 1 904,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_rt → T3</title></path>
+<path d="M450,700 A227.0,208.84 0 0 1 904,700" fill="none" stroke="#4a3aa7" stroke-width="1.2" stroke-opacity="0.16"><title>397b → T3</title></path>
+<path d="M90,700 A407.0,374.44 0 0 1 904,700" fill="none" stroke="#eda100" stroke-width="1.2" stroke-opacity="0.16"><title>9b_lora → T3</title></path>
+<path d="M480,700 A212.0,195.04000000000002 0 0 1 904,700" fill="none" stroke="#eb6834" stroke-width="1.2" stroke-opacity="0.16"><title>gemma → T3</title></path>
+<path d="M420,700 A257.0,236.44 0 0 1 934,700" fill="none" stroke="#008300" stroke-width="1.2" stroke-opacity="0.16"><title>r3 → T4</title></path>
+<path d="M180,700 A377.0,346.84000000000003 0 0 1 934,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_rt → T4</title></path>
+<path d="M450,700 A242.0,222.64000000000001 0 0 1 934,700" fill="none" stroke="#4a3aa7" stroke-width="1.2" stroke-opacity="0.16"><title>397b → T4</title></path>
+<path d="M480,700 A227.0,208.84 0 0 1 934,700" fill="none" stroke="#eb6834" stroke-width="1.2" stroke-opacity="0.16"><title>gemma → T4</title></path>
+<path d="M934,700 A15.0,13.8 0 0 1 964,700" fill="none" stroke="#8a8983" stroke-width="1.2" stroke-opacity="0.16"><title>T4 → T5</title></path>
+<path d="M210,700 A377.0,346.84000000000003 0 0 1 964,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_shift → T5</title></path>
+<path d="M994,700 A30.0,27.6 0 0 1 1054,700" fill="none" stroke="#8a8983" stroke-width="1.2" stroke-opacity="0.16"><title>T6 → T8A</title></path>
+<path d="M240,700 A407.0,374.44 0 0 1 1054,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_r2v3 → T8A</title></path>
+<path d="M270,700 A392.0,360.64000000000004 0 0 1 1054,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_fs16 → T8A</title></path>
+<path d="M420,700 A347.0,319.24 0 0 1 1114,700" fill="none" stroke="#008300" stroke-width="1.2" stroke-opacity="0.16"><title>r3 → T10</title></path>
+<path d="M180,700 A467.0,429.64000000000004 0 0 1 1114,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_rt → T10</title></path>
+<path d="M240,700 A437.0,402.04 0 0 1 1114,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_r2v3 → T10</title></path>
+<path d="M270,700 A422.0,388.24 0 0 1 1114,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_fs16 → T10</title></path>
+<path d="M450,700 A332.0,305.44 0 0 1 1114,700" fill="none" stroke="#4a3aa7" stroke-width="1.2" stroke-opacity="0.16"><title>397b → T10</title></path>
+<path d="M480,700 A317.0,291.64 0 0 1 1114,700" fill="none" stroke="#eb6834" stroke-width="1.2" stroke-opacity="0.16"><title>gemma → T10</title></path>
+<path d="M994,700 A90.0,82.8 0 0 1 1174,700" fill="none" stroke="#8a8983" stroke-width="1.2" stroke-opacity="0.16"><title>T6 → T12</title></path>
+<path d="M330,700 A422.0,388.24 0 0 1 1174,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_full → T12</title></path>
+<path d="M420,700 A392.0,360.64000000000004 0 0 1 1204,700" fill="none" stroke="#008300" stroke-width="1.2" stroke-opacity="0.16"><title>r3 → T13</title></path>
+<path d="M300,700 A452.0,415.84000000000003 0 0 1 1204,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_r1v3 → T13</title></path>
+<path d="M450,700 A377.0,346.84000000000003 0 0 1 1204,700" fill="none" stroke="#4a3aa7" stroke-width="1.2" stroke-opacity="0.16"><title>397b → T13</title></path>
+<path d="M480,700 A362.0,333.04 0 0 1 1204,700" fill="none" stroke="#eb6834" stroke-width="1.2" stroke-opacity="0.16"><title>gemma → T13</title></path>
+<path d="M994,700 A165.0,151.8 0 0 1 1324,700" fill="none" stroke="#8a8983" stroke-width="1.2" stroke-opacity="0.16"><title>T6 → T17</title></path>
+<path d="M120,700 A602.0,553.84 0 0 1 1324,700" fill="none" stroke="#eda100" stroke-width="1.2" stroke-opacity="0.16"><title>9b_dora → T17</title></path>
+<path d="M1234,700 A90.0,82.8 0 0 1 1414,700" fill="none" stroke="#8a8983" stroke-width="1.2" stroke-opacity="0.16"><title>T14 → T20</title></path>
+<path d="M540,700 A437.0,402.04 0 0 1 1414,700" fill="none" stroke="#e87ba4" stroke-width="1.2" stroke-opacity="0.16"><title>q35 → T20</title></path>
+<path d="M1444,700 A30.0,27.6 0 0 1 1504,700" fill="none" stroke="#8a8983" stroke-width="1.2" stroke-opacity="0.16"><title>T21 → T23</title></path>
+<path d="M150,700 A677.0,590 0 0 1 1504,700" fill="none" stroke="#2a78d6" stroke-width="1.2" stroke-opacity="0.16"><title>35b_zs → T23</title></path>
+<path d="M1474,700 A45.0,41.4 0 0 1 1564,700" fill="none" stroke="#8a8983" stroke-width="1.2" stroke-opacity="0.16"><title>T22 → T25</title></path>
+<path d="M1144,700 A210.0,193.20000000000002 0 0 1 1564,700" fill="none" stroke="#8a8983" stroke-width="1.2" stroke-opacity="0.16"><title>T11 → T25</title></path>
+<path d="M1384,700 A90.0,82.8 0 0 1 1564,700" fill="none" stroke="#8a8983" stroke-width="1.2" stroke-opacity="0.16"><title>T19 → T25</title></path>
+<path d="M540,700 A512.0,471.04 0 0 1 1564,700" fill="none" stroke="#e87ba4" stroke-width="1.2" stroke-opacity="0.16"><title>q35 → T25</title></path>
+<path d="M120,700 A722.0,590 0 0 1 1564,700" fill="none" stroke="#eda100" stroke-width="1.2" stroke-opacity="0.16"><title>9b_dora → T25</title></path>
+<path d="M420,700 A287.0,264.04 0 0 1 994,700" fill="none" stroke="#008300" stroke-width="2" stroke-opacity="0.9"><title>r3 → T6</title></path>
+<path d="M180,700 A407.0,374.44 0 0 1 994,700" fill="none" stroke="#2a78d6" stroke-width="2" stroke-opacity="0.9"><title>35b_rt → T6</title></path>
+<path d="M450,700 A272.0,250.24 0 0 1 994,700" fill="none" stroke="#4a3aa7" stroke-width="2" stroke-opacity="0.9"><title>397b → T6</title></path>
+<path d="M480,700 A257.0,236.44 0 0 1 994,700" fill="none" stroke="#eb6834" stroke-width="2" stroke-opacity="0.9"><title>gemma → T6</title></path>
+<path d="M994,700 A15.0,13.8 0 0 1 1024,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T6 → T7</title></path>
+<path d="M240,700 A392.0,360.64000000000004 0 0 1 1024,700" fill="none" stroke="#2a78d6" stroke-width="2" stroke-opacity="0.9"><title>35b_r2v3 → T7</title></path>
+<path d="M994,700 A45.0,41.4 0 0 1 1084,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T6 → T9</title></path>
+<path d="M1024,700 A30.0,27.6 0 0 1 1084,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T7 → T9</title></path>
+<path d="M420,700 A362.0,333.04 0 0 1 1144,700" fill="none" stroke="#008300" stroke-width="2" stroke-opacity="0.9"><title>r3 → T11</title></path>
+<path d="M180,700 A482.0,443.44 0 0 1 1144,700" fill="none" stroke="#2a78d6" stroke-width="2" stroke-opacity="0.9"><title>35b_rt → T11</title></path>
+<path d="M450,700 A347.0,319.24 0 0 1 1144,700" fill="none" stroke="#4a3aa7" stroke-width="2" stroke-opacity="0.9"><title>397b → T11</title></path>
+<path d="M480,700 A332.0,305.44 0 0 1 1144,700" fill="none" stroke="#eb6834" stroke-width="2" stroke-opacity="0.9"><title>gemma → T11</title></path>
+<path d="M420,700 A407.0,374.44 0 0 1 1234,700" fill="none" stroke="#008300" stroke-width="2" stroke-opacity="0.9"><title>r3 → T14</title></path>
+<path d="M180,700 A527.0,484.84000000000003 0 0 1 1234,700" fill="none" stroke="#2a78d6" stroke-width="2" stroke-opacity="0.9"><title>35b_rt → T14</title></path>
+<path d="M450,700 A392.0,360.64000000000004 0 0 1 1234,700" fill="none" stroke="#4a3aa7" stroke-width="2" stroke-opacity="0.9"><title>397b → T14</title></path>
+<path d="M510,700 A362.0,333.04 0 0 1 1234,700" fill="none" stroke="#eb6834" stroke-width="2" stroke-opacity="0.9"><title>gemma_rot → T14</title></path>
+<path d="M994,700 A135.0,124.2 0 0 1 1264,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T6 → T15</title></path>
+<path d="M570,700 A347.0,319.24 0 0 1 1264,700" fill="none" stroke="#1baf7a" stroke-width="2" stroke-opacity="0.9"><title>q38 → T15</title></path>
+<path d="M1234,700 A30.0,27.6 0 0 1 1294,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T14 → T16</title></path>
+<path d="M450,700 A422.0,388.24 0 0 1 1294,700" fill="none" stroke="#4a3aa7" stroke-width="2" stroke-opacity="0.9"><title>397b → T16</title></path>
+<path d="M480,700 A407.0,374.44 0 0 1 1294,700" fill="none" stroke="#eb6834" stroke-width="2" stroke-opacity="0.9"><title>gemma → T16</title></path>
+<path d="M180,700 A557.0,512.44 0 0 1 1294,700" fill="none" stroke="#2a78d6" stroke-width="2" stroke-opacity="0.9"><title>35b_rt → T16</title></path>
+<path d="M420,700 A437.0,402.04 0 0 1 1294,700" fill="none" stroke="#008300" stroke-width="2" stroke-opacity="0.9"><title>r3 → T16</title></path>
+<path d="M994,700 A180.0,165.6 0 0 1 1354,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T6 → T18</title></path>
+<path d="M540,700 A407.0,374.44 0 0 1 1354,700" fill="none" stroke="#e87ba4" stroke-width="2" stroke-opacity="0.9"><title>q35 → T18</title></path>
+<path d="M540,700 A422.0,388.24 0 0 1 1384,700" fill="none" stroke="#e87ba4" stroke-width="2" stroke-opacity="0.9"><title>q35 → T19</title></path>
+<path d="M180,700 A602.0,553.84 0 0 1 1384,700" fill="none" stroke="#2a78d6" stroke-width="2" stroke-opacity="0.9"><title>35b_rt → T19</title></path>
+<path d="M450,700 A467.0,429.64000000000004 0 0 1 1384,700" fill="none" stroke="#4a3aa7" stroke-width="2" stroke-opacity="0.9"><title>397b → T19</title></path>
+<path d="M480,700 A452.0,415.84000000000003 0 0 1 1384,700" fill="none" stroke="#eb6834" stroke-width="2" stroke-opacity="0.9"><title>gemma → T19</title></path>
+<path d="M1294,700 A75.0,69.0 0 0 1 1444,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T16 → T21</title></path>
+<path d="M1354,700 A45.0,41.4 0 0 1 1444,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T18 → T21</title></path>
+<path d="M1444,700 A15.0,13.8 0 0 1 1474,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T21 → T22</title></path>
+<path d="M1264,700 A105.0,96.60000000000001 0 0 1 1474,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T15 → T22</title></path>
+<path d="M120,700 A677.0,590 0 0 1 1474,700" fill="none" stroke="#eda100" stroke-width="2" stroke-opacity="0.9"><title>9b_dora → T22</title></path>
+<path d="M1354,700 A90.0,82.8 0 0 1 1534,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T18 → T24</title></path>
+<path d="M1264,700 A135.0,124.2 0 0 1 1534,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T15 → T24</title></path>
+<path d="M1474,700 A60.0,55.2 0 0 1 1594,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T22 → T26</title></path>
+<path d="M1144,700 A225.0,207.0 0 0 1 1594,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T11 → T26</title></path>
+<path d="M1384,700 A105.0,96.60000000000001 0 0 1 1594,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T19 → T26</title></path>
+<path d="M540,700 A527.0,484.84000000000003 0 0 1 1594,700" fill="none" stroke="#e87ba4" stroke-width="2" stroke-opacity="0.9"><title>q35 → T26</title></path>
+<path d="M120,700 A737.0,590 0 0 1 1594,700" fill="none" stroke="#eda100" stroke-width="2" stroke-opacity="0.9"><title>9b_dora → T26</title></path>
+<path d="M1534,700 A45.0,41.4 0 0 1 1624,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T24 → T27</title></path>
+<path d="M1474,700 A75.0,69.0 0 0 1 1624,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T22 → T27</title></path>
+<path d="M1384,700 A120.0,110.4 0 0 1 1624,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T19 → T27</title></path>
+<path d="M540,700 A542.0,498.64000000000004 0 0 1 1624,700" fill="none" stroke="#e87ba4" stroke-width="2" stroke-opacity="0.9"><title>q35 → T27</title></path>
+<path d="M120,700 A752.0,590 0 0 1 1624,700" fill="none" stroke="#eda100" stroke-width="2" stroke-opacity="0.9"><title>9b_dora → T27</title></path>
+<path d="M1474,700 A90.0,82.8 0 0 1 1654,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T22 → T28</title></path>
+<path d="M1084,700 A285.0,262.2 0 0 1 1654,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T9 → T28</title></path>
+<path d="M1234,700 A210.0,193.20000000000002 0 0 1 1654,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T14 → T28</title></path>
+<path d="M540,700 A557.0,512.44 0 0 1 1654,700" fill="none" stroke="#e87ba4" stroke-width="2" stroke-opacity="0.9"><title>q35 → T28</title></path>
+<path d="M480,700 A587.0,540.0400000000001 0 0 1 1654,700" fill="none" stroke="#eb6834" stroke-width="2" stroke-opacity="0.9"><title>gemma → T28</title></path>
+<path d="M1594,700 A45.0,41.4 0 0 1 1684,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T26 → T29</title></path>
+<path d="M1624,700 A30.0,27.6 0 0 1 1684,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T27 → T29</title></path>
+<path d="M1534,700 A75.0,69.0 0 0 1 1684,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T24 → T29</title></path>
+<path d="M1654,700 A15.0,13.8 0 0 1 1684,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T28 → T29</title></path>
+<path d="M1594,700 A60.0,55.2 0 0 1 1714,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T26 → T30</title></path>
+<path d="M1684,700 A15.0,13.8 0 0 1 1714,700" fill="none" stroke="#8a8983" stroke-width="2" stroke-opacity="0.9"><title>T29 → T30</title></path>
+<line x1="44" y1="700" x2="1774" y2="700" stroke="#d9d8d3" stroke-width="1"/>
+<line x1="602.0" y1="694" x2="602.0" y2="954" stroke="#d9d8d3" stroke-dasharray="3 4"/>
+<text x="60" y="950" font-size="13" fill="#8a8983">개별 모델 예측 (a~d 확률 저장)</text>
+<text x="634" y="950" font-size="13" fill="#8a8983">앙상블 제출 → 제출 순서</text>
+<text x="623.0" y="790" font-size="11" fill="#8a8983">09-21</text>
+<line x1="679.0" y1="702" x2="679.0" y2="790" stroke="#d9d8d3"/>
+<text x="683.0" y="790" font-size="11" fill="#8a8983">09-22</text>
+<line x1="739.0" y1="702" x2="739.0" y2="790" stroke="#d9d8d3"/>
+<text x="743.0" y="790" font-size="11" fill="#8a8983">09-23</text>
+<line x1="949.0" y1="702" x2="949.0" y2="790" stroke="#d9d8d3"/>
+<text x="953.0" y="790" font-size="11" fill="#8a8983">09-24</text>
+<line x1="1309.0" y1="702" x2="1309.0" y2="790" stroke="#d9d8d3"/>
+<text x="1313.0" y="790" font-size="11" fill="#8a8983">09-25</text>
+<line x1="1549.0" y1="702" x2="1549.0" y2="790" stroke="#d9d8d3"/>
+<text x="1553.0" y="790" font-size="11" fill="#8a8983">09-26</text>
+<rect x="53" y="703" width="14" height="5.0" rx="2" fill="#eda100"><title>9B 제로샷 Public 0.94221</title></rect>
+<circle cx="60" cy="700" r="6" fill="#eda100" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(64,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">9B 제로샷</text>
+<circle cx="90" cy="700" r="6" fill="#eda100" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(94,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">9B LoRA</text>
+<circle cx="120" cy="700" r="6" fill="#eda100" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(124,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">9B DoRA</text>
+<rect x="143" y="703" width="14" height="25.7" rx="2" fill="#2a78d6"><title>35B 제로샷 Public 0.95144</title></rect>
+<circle cx="150" cy="700" r="6" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(154,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">35B 제로샷</text>
+<rect x="173" y="703" width="14" height="55.2" rx="2" fill="#2a78d6"><title>35B read+tiles Public 0.96455</title></rect>
+<circle cx="180" cy="700" r="6" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(184,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">35B read+tiles</text>
+<circle cx="210" cy="700" r="6" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(214,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">35B 보기순환</text>
+<circle cx="240" cy="700" r="6" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(244,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">35B r2v3</text>
+<circle cx="270" cy="700" r="6" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(274,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">35B fs16</text>
+<circle cx="300" cy="700" r="6" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(304,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">35B r1v3</text>
+<circle cx="330" cy="700" r="6" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(334,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">35B 전체이미지</text>
+<circle cx="360" cy="700" r="6" fill="#008300" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(364,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">27B 제로샷</text>
+<rect x="383" y="703" width="14" height="49.2" rx="2" fill="#008300"><title>27B LoRA Public 0.96187</title></rect>
+<circle cx="390" cy="700" r="6" fill="#008300" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(394,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">27B LoRA</text>
+<circle cx="420" cy="700" r="6" fill="#008300" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(424,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">R3 (27B tiles)</text>
+<rect x="443" y="703" width="14" height="60.6" rx="2" fill="#4a3aa7"><title>397B read+tiles Public 0.96693</title></rect>
+<circle cx="450" cy="700" r="6" fill="#4a3aa7" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(454,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">397B read+tiles</text>
+<circle cx="480" cy="700" r="6" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(484,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">Gemma LoRA</text>
+<circle cx="510" cy="700" r="6" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(514,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">Gemma 보기회전</text>
+<circle cx="540" cy="700" r="6" fill="#e87ba4" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(544,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">Q35</text>
+<circle cx="570" cy="700" r="6" fill="#1baf7a" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(574,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">Q38 제로샷</text>
+<rect x="627" y="703" width="14" height="36.5" rx="2" fill="#b5b4ad"><title>9B+35B Public 0.95621</title></rect>
+<circle cx="634" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(638,804) rotate(60)" font-size="13" font-weight="700" fill="#8a8983">9B+35B</text>
+<text x="634" y="688" font-size="11" font-weight="700" fill="#0b0b0b" text-anchor="middle">0.95621</text>
+<rect x="657" y="703" width="14" height="43.2" rx="2" fill="#b5b4ad"><title>27B+35B Public 0.95918</title></rect>
+<circle cx="664" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(668,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">27B+35B</text>
+<rect x="687" y="703" width="14" height="65.9" rx="2" fill="#b5b4ad"><title>35B+397B Public 0.96931</title></rect>
+<circle cx="694" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(698,804) rotate(60)" font-size="13" font-weight="700" fill="#8a8983">35B+397B</text>
+<text x="694" y="688" font-size="11" font-weight="700" fill="#0b0b0b" text-anchor="middle">0.96931</text>
+<rect x="717" y="703" width="14" height="67.3" rx="2" fill="#b5b4ad"><title>w47:53 Public 0.96991</title></rect>
+<circle cx="724" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(728,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">w47:53</text>
+<rect x="747" y="703" width="14" height="63.9" rx="2" fill="#b5b4ad"><title>S2 Public 0.96842</title></rect>
+<circle cx="754" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(758,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">S2</text>
+<rect x="777" y="703" width="14" height="66.6" rx="2" fill="#b5b4ad"><title>S3 Public 0.96961</title></rect>
+<circle cx="784" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(788,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">S3</text>
+<rect x="807" y="703" width="14" height="70.0" rx="2" fill="#b5b4ad"><title>S4 Public 0.97110</title></rect>
+<circle cx="814" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(818,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">S4</text>
+<rect x="837" y="703" width="14" height="71.3" rx="2" fill="#b5b4ad"><title>T1 Public 0.97170</title></rect>
+<circle cx="844" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(848,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">T1</text>
+<rect x="867" y="703" width="14" height="70.7" rx="2" fill="#b5b4ad"><title>T2 Public 0.97140</title></rect>
+<circle cx="874" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(878,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">T2</text>
+<rect x="897" y="703" width="14" height="74.7" rx="2" fill="#b5b4ad"><title>T3 Public 0.97319</title></rect>
+<circle cx="904" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(908,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">T3</text>
+<rect x="927" y="703" width="14" height="75.3" rx="2" fill="#b5b4ad"><title>T4 Public 0.97348</title></rect>
+<circle cx="934" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(938,804) rotate(60)" font-size="13" font-weight="700" fill="#8a8983">T4</text>
+<text x="934" y="688" font-size="11" font-weight="700" fill="#0b0b0b" text-anchor="middle">0.97348</text>
+<rect x="957" y="703" width="14" height="75.3" rx="2" fill="#b5b4ad"><title>T5 Public 0.97348</title></rect>
+<circle cx="964" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(968,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">T5</text>
+<rect x="987" y="703" width="14" height="77.4" rx="2" fill="#b5b4ad"><title>T6 Public 0.97438</title></rect>
+<circle cx="994" cy="700" r="6" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(998,804) rotate(60)" font-size="13" font-weight="700" fill="#0b0b0b">T6</text>
+<text x="994" y="688" font-size="11" font-weight="700" fill="#0b0b0b" text-anchor="middle">0.97438</text>
+<rect x="1017" y="703" width="14" height="76.7" rx="2" fill="#b5b4ad"><title>T7 Public 0.97408</title></rect>
+<circle cx="1024" cy="700" r="6" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1028,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">T7</text>
+<rect x="1047" y="703" width="14" height="77.4" rx="2" fill="#b5b4ad"><title>T8A Public 0.97438</title></rect>
+<circle cx="1054" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1058,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">T8A</text>
+<rect x="1077" y="703" width="14" height="76.0" rx="2" fill="#b5b4ad"><title>T9 Public 0.97378</title></rect>
+<circle cx="1084" cy="700" r="6" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1088,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">T9</text>
+<rect x="1107" y="703" width="14" height="76.7" rx="2" fill="#b5b4ad"><title>T10 Public 0.97408</title></rect>
+<circle cx="1114" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1118,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">T10</text>
+<rect x="1137" y="703" width="14" height="76.0" rx="2" fill="#b5b4ad"><title>T11 Public 0.97378</title></rect>
+<circle cx="1144" cy="700" r="6" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1148,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">T11</text>
+<rect x="1167" y="703" width="14" height="77.4" rx="2" fill="#b5b4ad"><title>T12 Public 0.97438</title></rect>
+<circle cx="1174" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1178,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">T12</text>
+<rect x="1197" y="703" width="14" height="70.7" rx="2" fill="#b5b4ad"><title>T13 Public 0.97140</title></rect>
+<circle cx="1204" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1208,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">T13</text>
+<rect x="1227" y="703" width="14" height="76.0" rx="2" fill="#b5b4ad"><title>T14 Public 0.97378</title></rect>
+<circle cx="1234" cy="700" r="6" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1238,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">T14</text>
+<rect x="1257" y="703" width="14" height="78.0" rx="2" fill="#b5b4ad"><title>T15 Public 0.97467</title></rect>
+<circle cx="1264" cy="700" r="6" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1268,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">T15</text>
+<rect x="1287" y="703" width="14" height="76.0" rx="2" fill="#b5b4ad"><title>T16 Public 0.97378</title></rect>
+<circle cx="1294" cy="700" r="6" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1298,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">T16</text>
+<rect x="1317" y="703" width="14" height="76.7" rx="2" fill="#b5b4ad"><title>T17 Public 0.97408</title></rect>
+<circle cx="1324" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1328,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">T17</text>
+<rect x="1347" y="703" width="14" height="78.7" rx="2" fill="#b5b4ad"><title>T18 Public 0.97497</title></rect>
+<circle cx="1354" cy="700" r="6" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1358,804) rotate(60)" font-size="13" font-weight="700" fill="#0b0b0b">T18</text>
+<text x="1354" y="688" font-size="11" font-weight="700" fill="#0b0b0b" text-anchor="middle">0.97497</text>
+<rect x="1377" y="703" width="14" height="74.7" rx="2" fill="#b5b4ad"><title>T19 Public 0.97319</title></rect>
+<circle cx="1384" cy="700" r="6" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1388,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">T19</text>
+<rect x="1407" y="703" width="14" height="77.4" rx="2" fill="#b5b4ad"><title>T20 Public 0.97438</title></rect>
+<circle cx="1414" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1418,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">T20</text>
+<rect x="1437" y="703" width="14" height="76.7" rx="2" fill="#b5b4ad"><title>T21 Public 0.97408</title></rect>
+<circle cx="1444" cy="700" r="6" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1448,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">T21</text>
+<rect x="1467" y="703" width="14" height="77.4" rx="2" fill="#b5b4ad"><title>T22 Public 0.97438</title></rect>
+<circle cx="1474" cy="700" r="6" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1478,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">T22</text>
+<rect x="1497" y="703" width="14" height="76.7" rx="2" fill="#b5b4ad"><title>T23 Public 0.97408</title></rect>
+<circle cx="1504" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1508,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">T23</text>
+<rect x="1527" y="703" width="14" height="78.7" rx="2" fill="#b5b4ad"><title>T24 Public 0.97497</title></rect>
+<circle cx="1534" cy="700" r="6" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1538,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">T24</text>
+<rect x="1557" y="703" width="14" height="76.7" rx="2" fill="#b5b4ad"><title>T25 Public 0.97408</title></rect>
+<circle cx="1564" cy="700" r="4.5" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1568,804) rotate(60)" font-size="13" font-weight="400" fill="#8a8983">T25</text>
+<rect x="1587" y="703" width="14" height="76.7" rx="2" fill="#b5b4ad"><title>T26 Public 0.97408</title></rect>
+<circle cx="1594" cy="700" r="6" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1598,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">T26</text>
+<rect x="1617" y="703" width="14" height="78.0" rx="2" fill="#b5b4ad"><title>T27 Public 0.97467</title></rect>
+<circle cx="1624" cy="700" r="6" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1628,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">T27</text>
+<rect x="1647" y="703" width="14" height="83.4" rx="2" fill="#0b0b0b"><title>T28 Public 0.97706</title></rect>
+<circle cx="1654" cy="700" r="6" fill="#52514e" stroke="#0b0b0b" stroke-width="2"/>
+<text transform="translate(1658,804) rotate(60)" font-size="13" font-weight="700" fill="#0b0b0b">T28</text>
+<text x="1654" y="688" font-size="11" font-weight="700" fill="#0b0b0b" text-anchor="middle">0.97706</text>
+<rect x="1677" y="703" width="14" height="81.4" rx="2" fill="#b5b4ad"><title>T29 Public 0.97616</title></rect>
+<circle cx="1684" cy="700" r="6" fill="#52514e" stroke="#fcfcfb" stroke-width="2"/>
+<text transform="translate(1688,804) rotate(60)" font-size="13" font-weight="400" fill="#0b0b0b">T29</text>
+<rect x="1707" y="703" width="14" height="81.4" rx="2" fill="#0b0b0b"><title>T30 Public 0.97616</title></rect>
+<circle cx="1714" cy="700" r="6" fill="#52514e" stroke="#0b0b0b" stroke-width="2"/>
+<text transform="translate(1718,804) rotate(60)" font-size="13" font-weight="700" fill="#0b0b0b">T30</text>
+<text x="1714" y="688" font-size="11" font-weight="700" fill="#0b0b0b" text-anchor="middle">0.97616</text>
+<rect x="60" y="86" width="14" height="4" rx="2" fill="#2a78d6"/>
+<text x="80" y="92" font-size="13" fill="#52514e">Qwen3.6-35B-A3B</text>
+<rect x="241" y="86" width="14" height="4" rx="2" fill="#eb6834"/>
+<text x="261" y="92" font-size="13" fill="#52514e">Gemma 4 31B</text>
+<rect x="386" y="86" width="14" height="4" rx="2" fill="#1baf7a"/>
+<text x="406" y="92" font-size="13" fill="#52514e">Qwen3.8-27B</text>
+<rect x="531" y="86" width="14" height="4" rx="2" fill="#eda100"/>
+<text x="551" y="92" font-size="13" fill="#52514e">Qwen3.5-9B</text>
+<rect x="667" y="86" width="14" height="4" rx="2" fill="#e87ba4"/>
+<text x="687" y="92" font-size="13" fill="#52514e">Qwen3.5-27B (Q35)</text>
+<rect x="866" y="86" width="14" height="4" rx="2" fill="#008300"/>
+<text x="886" y="92" font-size="13" fill="#52514e">Qwen3.6-27B (R3)</text>
+<rect x="1056" y="86" width="14" height="4" rx="2" fill="#4a3aa7"/>
+<text x="1076" y="92" font-size="13" fill="#52514e">Qwen3.5-397B-A17B</text>
+<rect x="1255" y="86" width="14" height="4" rx="2" fill="#8a8983"/>
+<text x="1275" y="92" font-size="13" fill="#52514e">이전 제출 재결합</text>
+</svg>

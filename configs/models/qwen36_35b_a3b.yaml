@@ -1,0 +1,44 @@
+# Qwen3.6-35B-A3B — MoE, 중간 scale 1순위 / scale-up 분기점 (담당: 김진영)
+name: qwen36_35b_a3b
+adapter: qwen36
+hf_id: Qwen/Qwen3.6-35B-A3B
+family: qwen36
+
+architecture:            # [확인] 모델 카드 / config.json
+  dense: false
+  total_params_b: 35
+  active_params_b: 3
+  layers: 40
+  full_attention_layers: 10
+  full_attention_interval: 4
+  hidden_size: 2048
+  kv_heads: 2
+  head_dim: 256
+  experts_total: 256
+  experts_active: 9      # routed 8 + shared 1
+  expert_intermediate: 512
+  context: 262144
+
+vision:                  # [확인] 2026-09-16 config.json vision_config
+  patch_size: 16
+  spatial_merge_size: 2
+  pixels_per_token: 1024
+  min_pixels: 313600
+  max_pixels: 7840000
+
+load:
+  dtype: bfloat16
+  quantization: nf4
+  attn_implementation: flash_attention_2
+  trust_remote_code: true
+
+peft_targets:
+  # expert weight는 fused 3D 텐서다(2026-09-16 확인). vLLM #38520 미해결 버그가
+  # 우리 스택에서 재현되는지 smoke test로 먼저 확인하고, 재현되면 expert는 제외한다.
+  default: ["q_proj", "k_proj", "v_proj", "o_proj"]
+  moe_experts: ["experts.gate_up_proj", "experts.down_proj"]
+
+estimates:               # [추정] 3.5-35B-A3B 기준 planning estimate 재사용
+  vram_infer_gb: {bfloat16: 74, int8: 39, nf4: 23}
+  fft_state_gb: 630
+  fits_5060ti_16gb: []

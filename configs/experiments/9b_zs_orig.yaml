@@ -1,0 +1,9 @@
+# D1 9B zero-shot: 원본 해상도 그대로. 이미지 대부분이 720x960(긴 변 중앙값 960, 최대 1600)이라
+# long_side 1024 이상은 업스케일 금지 때문에 원본과 사실상 같다 — 해상도 축은 768 vs 원본뿐이다.
+name: 9b_zs_orig
+model: qwen35_9b
+resource: local_5060ti
+task: infer
+input: {view: full, long_side: null, crops: 0}
+subset: {size: 300}
+notes: "zero-shot 기준점(anchor). NetGain 비교의 baseline."

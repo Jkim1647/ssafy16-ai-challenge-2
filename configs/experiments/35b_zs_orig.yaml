@@ -1,0 +1,10 @@
+# RunPod 규모 사다리 zero-shot: 9b_zs_orig와 입력·프롬프트·채점을 완전히 같게 둔다.
+# 반드시 enable_thinking=false가 들어간 코드(bcfbdc4 이후)로 실행할 것.
+# 평가셋은 팀이 통일한 split으로 --set data.split.file=... 로 지정한다(기본은 base.yaml).
+# bf16으로 재려면 --set model_config.load.quantization=none
+name: 35b_zs_orig
+model: qwen36_35b_a3b
+resource: runpod_b300x1
+task: infer
+input: {view: full, long_side: null, crops: 0}
+notes: "규모 게이트: 9B 대비 NetGain을 같은 문항 paired로 판정."

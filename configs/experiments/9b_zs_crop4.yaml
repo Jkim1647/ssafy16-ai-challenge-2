@@ -1,0 +1,9 @@
+# A축 전이 확인: 전체 이미지 1장 + 2x2 crop 4장(원본 픽셀 유지, 업스케일 금지).
+# 현호 A축(3B)에서 crop +1.49%p. 저확신 문항에만 crop을 쓰는 adaptive 방식은 9b_zs_orig와
+# 문항별 확률을 합쳐 오프라인으로 계산한다(추가 추론 불필요).
+name: 9b_zs_crop4
+model: qwen35_9b
+resource: local_5060ti
+task: infer
+input: {view: full_crop, long_side: null, crops: 4, crop_long_side: null}
+notes: "crop 뷰는 원본보다 작아 processor min_pixels(560^2)에 의해 확대될 수 있다 — visual token 로그 확인."

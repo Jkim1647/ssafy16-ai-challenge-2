@@ -1,0 +1,15 @@
+name: runpod_b300x2
+kind: runpod
+gpu: {model: "B300", vram_gb: 288, count: 2}
+cost: {usd_per_hour: 15.78, krw_per_hour: 21618, metered: true}
+capacity: {gpu_hours_total: null}
+limits:
+  allow_fft: false            # 576GB — 35B FFT(630GB)에 여전히 못 미친다. ×3부터 가능
+  max_model_params_b: 397
+budget_guard:
+  max_cost_krw: 1000000
+  max_runtime_hours: 8
+  auto_downshift_to: runpod_b300x1
+policy:
+  unattended_ok: false
+  preferred_for: ["122B BF16 LoRA/DoRA", "397B FP8", "병렬 추론"]

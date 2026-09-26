@@ -1,0 +1,9 @@
+# 학습 VRAM 실측 전용. smoke는 PEFT 왕복만 보고 forward/backward/optimizer step은
+# 한 번도 안 돌았다 — 09/17 세션에서 이 config로 synthetic probe를 돌려 처음 확인한다.
+name: 9b_qlora_r8_1024
+model: qwen35_9b
+resource: local_5060ti
+task: train
+input: {view: full, long_side: 1024, crops: 0}
+train: {method: qlora, r: 8, lr: 2.0e-5, microbatch: 1, grad_checkpointing: true}
+notes: "학습 VRAM 실측용. train --synthetic으로 3 step만 돌려 peak VRAM·sec/step을 잰다."

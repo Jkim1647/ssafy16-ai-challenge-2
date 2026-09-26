@@ -1,0 +1,9 @@
+# D1 9B zero-shot: 768 축소. 원본(9b_zs_orig)과 짝을 이뤄 해상도 효과를 잰다.
+# 평가: val300 = 팀 holdout(val 669)에서 seed 1로 고정 추출한 300개. dev는 편향 표본이라 쓰지 않는다.
+name: 9b_zs_768
+model: qwen35_9b
+resource: local_5060ti
+task: infer
+input: {view: full, long_side: 768, crops: 0}
+subset: {size: 300}
+notes: "zero-shot, 선택지 로그확률 채점, enable_thinking=false."

@@ -1,0 +1,22 @@
+name: local_5060ti
+kind: local
+gpu: {model: "RTX 5060 Ti", vram_gb: 16, count: 5}
+cost: {krw_per_hour: 0, metered: false}
+capacity:
+  gpu_hours_per_day: 40        # 5대 × 8시간 기준
+  # 가용 기간이 대회 전체가 아니다 — 09/21·22·23 사흘만 쓸 수 있다.
+  # 09/24부터는 Colab·RunPod만 남으므로, 로컬에서만 할 수 있는 것
+  # (9B 2축 ablation 등 비용 0 실험)은 이 사흘에 전부 끝내야 한다.
+  available_dates: ["2026-09-21", "2026-09-22", "2026-09-23"]
+  gpu_hours_total: 120
+limits:
+  max_microbatch: 1
+  allow_fft: false
+  max_model_params_b: 9
+policy:
+  # 시간당 비용이 0이라 장시간 자동 실험에 쓴다. 단 09/21~23에만 가능하다.
+  unattended_ok: true
+  preferred_for: ["2b/9b ablation", "OCR cache", "crop 생성", "image variation"]
+  # AI Hub 데이터는 국외 반출 제한 때문에 로컬에서만 쓸 수 있다.
+  # 즉 AI Hub 기반 작업은 09/23까지가 마감이다.
+  only_resource_for: ["AI Hub 데이터 사용 작업"]

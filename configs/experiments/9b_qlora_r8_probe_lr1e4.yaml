@@ -1,0 +1,18 @@
+# D1 9B QLoRA 방향 탐색: train_fit에서 고정 1,500개로 1 epoch, val300으로 평가.
+# LR만 바꾸는 쌍(1e-4 / 2e-4). base.yaml의 2e-5는 LoRA 통상 범위(1e-4~2e-4)보다 낮다.
+name: 9b_qlora_r8_probe_lr1e4
+model: qwen35_9b
+resource: local_5060ti
+task: train
+input: {view: full, long_side: null, crops: 0}
+train:
+  method: qlora
+  r: 8
+  alpha: 16
+  lr: 1.0e-4
+  epochs: 1
+  grad_accum: 16
+  max_samples: 1500     # 1,500 / 16 = 약 94 optimizer step
+  eval_size: 300        # val300 — zero-shot run과 같은 문항
+  eval_every_steps: 50
+notes: "피크 VRAM 14.5GB를 넘으면 중단하고 long_side 768로 내린다."

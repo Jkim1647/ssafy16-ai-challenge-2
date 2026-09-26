@@ -2,6 +2,7 @@
 name = "ai2-challenge"
 version = "0.1.0"
 description = "SSAFY 16기 2회차 AI 챌린지 — 팀 C031_AI챌린저 실험 파이프라인"
+license = {text = "MIT"}
 requires-python = ">=3.11,<3.14"
 dependencies = [
     "torch>=2.11.0",

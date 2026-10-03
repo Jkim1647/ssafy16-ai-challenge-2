@@ -1,6 +1,6 @@
-# 사진 속 글자를 읽는 AI — SSAFY 16기 2차 AI 챌린지
+# SSAFY 16기 AI 챌린지 2차 · 사진 속 글자 읽기 VQA
 
-**팀 C031_AI챌린저** · 김진영 · 윤석웅 · 박건순 · 김현호 · 김민우
+**팀 C031_AI챌린저** · 김진영 · 윤석웅 · 박건순 · 김현호 · 김민우 &nbsp;·&nbsp; 이전 대회: [AI 챌린지 1차 · 재활용품 VQA (954명 중 18위)](https://github.com/Jkim1647/ssafy16-ai-challenge-1)
 
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.11-EE4C2C?logo=pytorch&logoColor=white)

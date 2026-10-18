@@ -1,7 +1,7 @@
 """calibration 50건: 두 작업자의 판정을 비교해 합의할 목록을 뽑는다.
 
     python tools/compare_calibration.py 내파일.csv 상대파일.csv
-    python tools/compare_calibration.py teammate_handoff/calibration/labels.csv 석웅/labels.csv --names 진영 석웅
+    python tools/compare_calibration.py teammate_handoff/calibration/labels.csv 팀원 A/labels.csv --names 진영 팀원 A
 
 출력:
   - 콘솔: 항목별 일치율, 불일치 건수

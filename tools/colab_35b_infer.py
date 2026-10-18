@@ -6,7 +6,7 @@
     !python colab_35b_prompt_infer.py --data /content/drive/MyDrive/<경로>/ssafy-16-2-ai --split val100 --out /content/drive/MyDrive/<경로>/out
     !python colab_35b_prompt_infer.py --data ... --split test --out ...
 
-- 프롬프트: 석웅 1,000건 실행(commands.txt)과 한 글자도 같게. enable_thinking=False.
+- 프롬프트: 팀원 A 1,000건 실행(commands.txt)과 한 글자도 같게. enable_thinking=False.
 - 채점: 답변 위치 다음 토큰에서 a/b/c/d 확률만 비교(= a~d 문법 제한 1토큰 greedy와 같은 답). 확률도 저장.
 - 정밀도: bf16(기본). --dtype 로 바꿀 수 있다.
 - 이미지: 원본 크기(업스케일 없음). visual token 상한은 processor 기본(max_pixels)을 쓴다.

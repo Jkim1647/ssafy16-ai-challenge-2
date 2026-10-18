@@ -1,6 +1,6 @@
 # SSAFY 16기 AI 챌린지 2차 · 사진 속 글자 읽기 VQA
 
-**팀 C031_AI챌린저** · 김진영 · 윤석웅 · 박건순 · 김현호 · 김민우 &nbsp;·&nbsp; 이전 대회: [AI 챌린지 1차 · 재활용품 VQA (954명 중 18위)](https://github.com/Jkim1647/ssafy16-ai-challenge-1)
+**팀 C031_AI챌린저** · 김진영 외 4명 (5인 팀) &nbsp;·&nbsp; 이전 대회: [AI 챌린지 1차 · 재활용품 VQA (954명 중 18위)](https://github.com/Jkim1647/ssafy16-ai-challenge-1)
 
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.11-EE4C2C?logo=pytorch&logoColor=white)
@@ -377,13 +377,13 @@ Colab Pro+ (RTX PRO 6000 96GB), RunPod (H200, RTX PRO 6000), Nebius (H100 8장, 
 
 ## 팀
 
-| 이름 | 사전 조사 담당 | 대회 중 맡은 일 |
+| 이름 (팀원은 익명 표기) | 사전 조사 담당 | 대회 중 맡은 일 |
 |---|---|---|
 | 김진영 | Qwen3.6-35B-A3B | 실험 설계, 채점표·dev 검수, 학습, Gemma 앙상블, 앙상블·제출 |
-| 윤석웅 | Qwen3.5-397B-A17B | 전략 문서, 최신 논문 조사, 서버·비용 관리 인프라(RunPod·MLflow·Jetson), 35B 프롬프트 |
-| 김민우 | Qwen3.5-122B-A10B | 122B 운용 조사, dev 라벨 검토, 중간 발표 PPT 발표 |
-| 김현호 | Qwen3.5-9B / 2B | 작은 모델 운용 조사, dev 라벨 검토, 중간 발표 PPT 제작 |
-| 박건순 | Qwen3.5-9B / 2B | 작은 모델 운용 조사, dev 라벨 검토 |
+| 팀원 A | Qwen3.5-397B-A17B | 전략 문서, 최신 논문 조사, 서버·비용 관리 인프라(RunPod·MLflow·Jetson), 35B 프롬프트 |
+| 팀원 B | Qwen3.5-122B-A10B | 122B 운용 조사, dev 라벨 검토, 중간 발표 PPT 발표 |
+| 팀원 C | Qwen3.5-9B / 2B | 작은 모델 운용 조사, dev 라벨 검토, 중간 발표 PPT 제작 |
+| 팀원 D | Qwen3.5-9B / 2B | 작은 모델 운용 조사, dev 라벨 검토 |
 
 **더 읽을거리**
 

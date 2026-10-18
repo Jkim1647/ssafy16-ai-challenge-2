@@ -1,4 +1,4 @@
-# Qwen3.5-397B-A17B — MoE, ceiling / teacher 후보 (담당: 윤석웅)
+# Qwen3.5-397B-A17B — MoE, ceiling / teacher 후보 (담당: 팀원 A)
 name: qwen35_397b_a17b
 adapter: qwen35
 hf_id: Qwen/Qwen3.5-397B-A17B

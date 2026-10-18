@@ -6,7 +6,7 @@ GPU를 켠 뒤 20~30분 안에 판정한다. 본 학습이 아니다.
     python colab_fft_smoke.py --model Qwen/Qwen3.6-35B-A3B --data /content/data \
         --overfit-csv overfit30_train.csv --steps 3 --view full --optimizer adamw8bit
 
-핵심 구성(ChatGPT/석웅 분석 반영):
+핵심 구성(ChatGPT/팀원 A 분석 반영):
   - BF16 전체 파라미터 학습(언어 모델). 비전 타워는 기본 동결(--train-vision로 포함).
   - 8-bit AdamW(bitsandbytes) — optimizer state 8-bit, FP32 master weight 없음(로그로 확인).
   - gradient checkpointing ON, microbatch=1.

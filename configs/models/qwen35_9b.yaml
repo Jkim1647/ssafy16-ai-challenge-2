@@ -1,4 +1,4 @@
-# Qwen3.5-9B — Dense, 저비용 탐색 슬롯 (담당: 김현호·박건순)
+# Qwen3.5-9B — Dense, 저비용 탐색 슬롯 (담당: 팀원 C·팀원 D)
 name: qwen35_9b
 adapter: qwen35
 hf_id: Qwen/Qwen3.5-9B

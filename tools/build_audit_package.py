@@ -14,7 +14,7 @@ test가 한 행이라도 섞이면 `_forbid_disallowed_split()`이 에러로 멈
 label noise 추정치는 **baseline300 + train_random**(무작위 표본)으로만 계산한다. supplement·forced는
 의도적으로 편향된 표본이라 noise 비율에 넣으면 상한이 왜곡된다(tools/merge_label_sheets.py가 분리한다).
 
-담당 배정: 건순·민우·현호 3명에게 라운드로빈으로 각 ~167개. 같은 출처(source)가 세 사람에게 고르게 간다.
+담당 배정: 팀원 D·팀원 B·팀원 C 3명에게 라운드로빈으로 각 ~167개. 같은 출처(source)가 세 사람에게 고르게 간다.
 
 산출물 (data_meta/label_audit/):
   - label_audit_500.xlsx         작성용 엑셀(드롭다운·필터 포함). 구글 드라이브에 올려 구글시트로 열면 된다

@@ -31,7 +31,7 @@ CHOICE_PROMPT = (
     "정답 기호 하나만 출력하시오."
 )
 
-# 석웅 35B GGUF 1,000건 실행(commands.txt)과 같은 문구. prompt.template=seokwoong_ko 로 선택.
+# 팀원 A 35B GGUF 1,000건 실행(commands.txt)과 같은 문구. prompt.template=seokwoong_ko 로 선택.
 SEOKWOONG_PROMPT = (
     "이미지를 보고 객관식 문제를 푸세요. 설명이나 추론은 출력하지 말고 정답인 소문자 a, b, c, d 중 "
     "하나만 출력하세요. 질문: {question} 선택지: {choices} 정답:"

@@ -269,7 +269,7 @@ def fixed_split(cfg: Config, samples: list[Sample]) -> tuple[list[Sample], list[
         samples = [s for s in samples if s.id not in excluded and s.image_path.name not in excluded]
 
     if path.suffix == ".json":
-        # group split JSON (석웅 브랜치 형식): {"sample_count", "val_groups": [...]}. group = 이미지 파일명
+        # group split JSON (팀원 A 브랜치 형식): {"sample_count", "val_groups": [...]}. group = 이미지 파일명
         payload = json.loads(path.read_text(encoding="utf-8"))
         val_keys = set(map(str, payload["val_groups"]))
         expected = payload.get("sample_count")

@@ -23,7 +23,7 @@ REPO = Path(__file__).resolve().parents[1]
 DEV = REPO / "ssafy-16-2-ai/dev.csv"
 RET = REPO / "label_packets/hard_ext_20260922/returned"
 GOLD2 = REPO / "runs/dev_validation_v1/hard_eval_gold_v2.json"
-CODEX = REPO / "teammate_handoff/codex_dev_regen/full_1317.csv"  # 석웅 Codex 재생성 QA 정리분
+CODEX = REPO / "teammate_handoff/codex_dev_regen/full_1317.csv"  # 팀원 A Codex 재생성 QA 정리분
 OUT = REPO / "runs/dev_validation_v1/dev_label_master.csv"
 
 COLS = ["id", "image_id", "path", "source", "question", "a", "b", "c", "d",
